@@ -59,9 +59,9 @@ public class Memory {
 
     @Override
     public String toString(){
-        StringBuilder b = new StringBuilder();
-        for(int i = 0; i < 5; i++){
-            b.append(cells[i]);
+        StringBuilder b = new StringBuilder(pointer + ": ");
+        for(int i = 0; i < 15; i++){
+            b.append(cells[i] + " ");
         }
         return b.toString();
     }
