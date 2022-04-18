@@ -1,6 +1,6 @@
-package executor.executable.instructions;
+package runtime.commands;
 
-import executor.Memory;
+import runtime.Memory;
 
 public class DecreaseCellValue extends Instruction {
 

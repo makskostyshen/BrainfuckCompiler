@@ -1,4 +1,4 @@
-package executor;
+package runtime;
 
 
 import java.util.Arrays;
@@ -7,48 +7,43 @@ import java.util.Arrays;
  * Imitates simple computer memory
  */
 public class Memory {
-    private byte[] cells;
+
+    private static final int MEMORY_SIZE = 30000; //max number of cells
+
+    private byte[] cells = new byte[MEMORY_SIZE];
     private int pointer;
-    private static final int capacity = 30000; //max number of cells
 
-    public Memory(){
-        cells = new byte[capacity];
-        pointer = 0;
-    }
-
-    public void pointerMoveForward(){
-        if(pointer < capacity-1){
+    public void pointerMoveForward() {
+        if (pointer < MEMORY_SIZE - 1) {
             pointer++;
-        }
-        else{
+        } else {
             pointer = 0;
         }
     }
 
-    public void pointerMoveBackward(){
-        if(pointer > 0){
+    public void pointerMoveBackward() {
+        if (pointer > 0) {
             pointer--;
-        }
-        else{
-            pointer = capacity-1;
+        } else {
+            pointer = MEMORY_SIZE - 1;
         }
     }
 
-    public void decreaseCurrentCell(){
+    public void decreaseCurrentCell() {
         cells[pointer]--;
     }
 
-    public void increaseCurrentCell(){
+    public void increaseCurrentCell() {
         cells[pointer]++;
     }
 
-    public byte getCurrentCell(){
+    public byte getCurrentCell() {
         return cells[pointer];
     }
 
     @Override
-    public boolean equals(Object other){
-        if(!(other instanceof Memory)){
+    public boolean equals(Object other) {
+        if (!(other instanceof Memory)) {
             return false;
         }
         Memory otherMemory = (Memory) other;
@@ -58,9 +53,9 @@ public class Memory {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         StringBuilder b = new StringBuilder(pointer + ": ");
-        for(int i = 0; i < 15; i++){
+        for (int i = 0; i < 15; i++) {
             b.append(cells[i] + " ");
         }
         return b.toString();

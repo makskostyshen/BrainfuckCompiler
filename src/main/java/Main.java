@@ -1,28 +1,28 @@
-import compiler.Compiler;
+import runtime.Executor;
+import runtime.commands.Command;
+
+import java.util.List;
 
 /**
  * Brainfuck compiler program
  * /
  * To compile - run and follow instructions
  * /
+ *
  * @author - Maks Kostyshen
  */
-
 public class Main {
 
     public static void main(String[] args) {
 
         //ready strings to try
-        String helloWorldString = "++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++.";
-        String zeroToNineString = "++++++[>++++++++<-]>.+.+.+.+.+.+.+.+.+.";
-        String myInstagram = "++++++++[>++++<-]>[>+>++<<-]>>[>+>+<<-]<<<+++++[>++++++++<-]>[->>+>>+<<<<]>>>>+.+++++.+++++.+.<------.<<.>>++++++.>-------.[>+>+<<-]>>------------.<--.++++++++.";
+        String helloWorldString = "++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]" +
+                ">>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++.";
 
-        String moveString = "[>+<-]";
-        String copyString = "[>+>+<<-]";
-        String doubleString = ">[>+>++<<-]";
+        compiler.Compiler compiler = new compiler.Compiler(helloWorldString);
+        List<Command> executables = compiler.compile();
 
-        Compiler processor = new Compiler();
-        processor.compile();
-
+        Executor executor = new Executor();
+        executor.execute(executables);
     }
 }

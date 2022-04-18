@@ -1,6 +1,6 @@
-package executor.executable;
+package runtime.commands;
 
-import executor.Memory;
+import runtime.Memory;
 
 /**
  * Defines objects-methods which can execute
@@ -10,7 +10,7 @@ import executor.Memory;
  * /
  * Can be blocks of instructions or instructions
  */
-public interface Executable {
+public interface Command {
 
     void execute(Memory memory);
 

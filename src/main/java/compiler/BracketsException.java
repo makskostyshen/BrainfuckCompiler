@@ -1,4 +1,4 @@
-package exceptions;
+package compiler;
 
 /**
  * exceptions with wrong number or
@@ -10,8 +10,5 @@ public class BracketsException extends IllegalArgumentException{
 
     public BracketsException(){
         super();
-    }
-    public BracketsException(String errorMessage){
-        super(errorMessage);
     }
 }

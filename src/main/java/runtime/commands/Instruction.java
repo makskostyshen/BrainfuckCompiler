@@ -1,12 +1,10 @@
-package executor.executable.instructions;
-
-import executor.executable.Executable;
+package runtime.commands;
 
 /**
  * Simple instruction
  * can be executed with memory
  */
-public abstract class Instruction implements Executable {
+public abstract class Instruction implements Command {
 
     @Override
     public boolean equals(Object other){
